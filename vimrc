@@ -85,7 +85,7 @@ if has("autocmd")
     \ endif
 
   " When using multiple windows, set a minimum width and height
-  autocmd VimEnter *
+  autocmd GUIEnter *
     \ set winheight=60 winwidth=90 winminwidth=10 winminheight=10
 
   augroup END
