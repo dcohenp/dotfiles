@@ -1,0 +1,9 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_1='/remote/dcopt066/raula/src'
+let g:netrw_dirhist_2='/remote/dcopt066/raula/src/main-cgp-raula-us'
+let g:netrw_dirhist_3='/remote/dcopt066/raula/src'
+let g:netrw_dirhist_4='/remote/dcopt066/raula/src/main-cgp-raula-us'
+let g:netrw_dirhist_5='/remote/dcopt066/raula/src/main-cgp-raula-us/rbo'
+let g:netrw_dirhist_6='/remote/dcopt066/raula/src/main-cgp-raula-us/rbo/power'
+let g:netrw_dirhist_7='/remote/dcopt066/raula/src/main-cgp-raula-us/rbo/power/cgopt'
