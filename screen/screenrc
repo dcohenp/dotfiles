@@ -1,0 +1,73 @@
+# No bell at all
+vbell off
+
+# Don't display the copyright page
+startup_message off
+
+defutf8 on
+
+# Change default scrollback value for new windows
+defscrollback 20000
+nonblock on
+
+term xterm
+# termcapinfo xterm-color|rxvt ti@:te@
+# termcapinfo xterm ti@:te@
+termcapinfo xterm|xterms|xs|rxvt ti@:te@
+
+deflogin on
+
+# hardstatusline
+hardstatus on
+hardstatus alwayslastline
+#hardstatus string '%{= kG}%-Lw%{= kW}%50> %n%f* %t%{= kG}%+Lw%< %{= kG}%-=%c:%s%{-}'
+#hardstatus string '%{= kG}%-Lw%{= kW}%50> %n%f* %t%{= kG}%+Lw%<'
+#hardstatus string '%{=b}%{G} %{b}%w %=%{kG}%C%A  %D, %M/%d/%Y'
+#hardstatus string "%{=b}%{G} %{c}%w %=%{kG}%C%A %D, %M/%d/%Y"
+#hardstatus string "%{.1099} %-w%{.bg}%n %t%{-}%+w %=%H %c:%s "
+#hardstatus string "%{.1099} %-w%{= BW}%n %t%{-}%+w %=%{kG}%c %m.%d.%Y"
+hardstatus string "%{= kr}[ %H %{kR}Load: %l %{-}] %{= ky}%-w%{= rW}%n %t%{-}%+w %-=%{kg} %c %m.%d.%Y"
+
+#caption always
+#caption string "%{+b rk}%H%{gk} |%c %{yk}%m.%d.%Y | %72=Load: %l %{wk}"
+
+# Startup settings
+screen -t Regressions 0
+screen -t Run         1
+screen -t Code        2
+screen -t Compile     3
+screen -t ClientStore 4
+select 0
+
+# Fix stupid screen overwriting
+altscreen on
+
+# escape key
+# escape ``
+
+##    Keybindings    ##
+
+# bind F7  to detach screen session from this terminal
+# bind F8  to kill current screen window.
+# bind F9  to create a new screen
+# bind F10 to rename current screen window
+# bind F11 to move to previous window
+# bind F12 to move to next window
+bindkey -k k7 detach
+bindkey -k k8 kill
+bindkey -k k9 screen
+bindkey -k k; title
+bindkey -k F1 prev
+bindkey -k F2 next
+
+# Prevent a screen from being frozen when by mystake you press sequence
+# "ctrl-a s" instead of "ctrl-a S" which is used to horizonatally split the
+# screen into regions.
+# Anyway, I don't know why sometimes this is still happening.
+# If that happens, send a start signal with Ctrl-a-q
+bind s
+
+# bind Shift+PgUp/PgDn
+bindkey -m "^[[5;2~" stuff ^b
+bindkey -m "^[[6;2~" stuff ^f
+
