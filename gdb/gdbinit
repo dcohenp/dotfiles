@@ -1,0 +1,55 @@
+set environment SYNOPSYS_GDB_DUMP 1
+
+set history save
+set history expansion
+set history filename ~/.gdb_history
+set confirm off
+
+define save_state
+  if sizeof (void *) == 8
+    echo 64-bit save\n
+    call save_gdb ($arg0, $rip, $rsp, $rbp, $rax, $rbx, $rcx, $rdx, $rsi, $rdi, $r8,  $r9,  $r10, $r11, $r12, $r13, $r14, $r15, $eflags)
+  else
+    echo 32-bit save\n
+    call save_gdb ($arg0, $eip, $esp, $ebp, $eax, $ebx, $ecx, $edx, $esi, $edi, $eflags)
+  end
+end
+
+define restore_state
+  set  $dumper_addr = (char **)(&dumper_file)
+  set *$dumper_addr = $arg0
+  jump restore_gdb
+end
+
+define relink
+  call dumper_load_lib ($arg0)
+end
+
+define dt
+  call dc_test()
+end
+
+define consistency
+  call dcl_check_consistency(dc_get_current_design())
+end
+
+define ddc
+  call glo_write_checkpoint(dc_get_current_design(), $arg0)
+end
+
+define flush_svf
+  call fmlink_init_recording(0, 0, 1, 1, 0)
+  call fmlink_init_recording($arg0, 1, 0, 1, 0)
+end
+
+define start_ice
+  call ice_attrs_init()
+end
+
+define check_ice
+  call ice_design_region_is_well_formed(dc_get_current_design())
+end
+
+source ~/.gdb/run.gdb
+source ~/.gdb/showing.gdb
+
