@@ -1,12 +1,6 @@
-# $Id: _bashrc 1877 2009-06-24 21:48:13Z reacuna $
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
-# for examples
-#
-# $Revision: 1877 $
-# $Author: reacuna $
-# $Date: 2009-06-24 17:48:13 -0400 (Wed, 24 Jun 2009) $
-# $HeadURL: https://manny.homedns.org/svn/reacuna-home/head/Dotfiles/_bashrc $
+# for examples.
 
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
