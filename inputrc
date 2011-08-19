@@ -1,1 +1,2 @@
+# Ignore case when using bash-completion.
 set completion-ignore-case on
