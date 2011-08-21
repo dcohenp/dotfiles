@@ -2,7 +2,9 @@
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
+" Activate pathogen
 call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
@@ -21,15 +23,15 @@ map Q gq
 " have syntax highlighting in terminals which can display colours:
 if has('syntax') && (&t_Co > 2)
         syntax enable
-        
+
         "highlight Pmenu      ctermbg=grey ctermfg=black
         "highlight PmenuSel   cterm=bold,reverse ctermbg=black ctermfg=yellow
         "highlight PmenuSbar  ctermbg=blue
         "highlight PmenuThumb ctermfg=lightblue
-        
+
         let c_gnu          = 1
         let c_space_errors = 1
-    
+
 endif
 
 "" have command-line completion <Tab> (for filenames, help topics, option names)
@@ -97,7 +99,7 @@ endif " has("autocmd")
 
 " normally don't automatically format `text' as it is typed, only do this
 " with comments
-set formatoptions-=t 
+set formatoptions-=t
 
 "" make searches case-insensitive, unless they contain upper-case letters:
 set ignorecase
@@ -125,7 +127,7 @@ set hlsearch
 
 "" Press Space to turn off highlighting and clear any messages already
 "" displayeds
-nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR> 
+nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 
 
 "" Estas tres lineas definen comandos ficticios para "Q", "W" y "Wq" que
@@ -167,11 +169,11 @@ set tags=$RVR/syn/mainsh/tags
 "set verbose=9
 
 "" virtualedit permite situar el cursor en posiciones de la pantalla donde
-"" no hay texto 
+"" no hay texto
 "set virtualedit=all
 
 " Map \v to open a new tab and edit this .vimrc file. Use \V to load it.
-map \v :tabnew $MYVIMRC<CR><C-W> 
+map \v :tabnew $MYVIMRC<CR><C-W>
 map <silent> \V :source $MYVIMRC<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 
 " Use \h and \l to move between tabs
@@ -182,14 +184,14 @@ map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 
 if exists("*strftime")
   " Map \d to insert the current date
-  nnoremap \d "=strftime("%b %d, %Y")<CR>P 
-  inoremap \d <C-R>=strftime("%b %d, %Y")<CR> 
+  nnoremap \d "=strftime("%b %d, %Y")<CR>P
+  inoremap \d <C-R>=strftime("%b %d, %Y")<CR>
 endif
 
 "" Configuracion especifica para vimdiff o vim -d
-if &diff 
+if &diff
   colorscheme josee
-  set nonumber 
+  set nonumber
   set diffopt=filler,iwhite
 
 endif
