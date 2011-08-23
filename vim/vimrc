@@ -188,7 +188,6 @@ endif
 
 "" Configuracion especifica para vimdiff o vim -d
 if &diff 
-  colorscheme josee
   set nonumber 
   set diffopt=filler,iwhite
 
