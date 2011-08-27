@@ -189,9 +189,8 @@ if exists("*strftime")
 endif
 
 "" Configuracion especifica para vimdiff o vim -d
-if &diff
-  colorscheme josee
-  set nonumber
+if &diff 
+  set nonumber 
   set diffopt=filler,iwhite
 
 endif
