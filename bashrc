@@ -107,4 +107,7 @@ if [ -x /usr/games/fortune ] ; then
 	/usr/games/fortune -a -e
 fi
 
-NODE_PATH=/usr/local/lib/node:$NODE_PATH
+export NODE_PATH=/usr/local/lib/node:/usr/local/lib/node_modules:$NODE_PATH
+
+# Set LC_CTYPE value to current value, but prepended with en_US.
+export LC_CTYPE=${LC_CTYPE/#/en_US.}
