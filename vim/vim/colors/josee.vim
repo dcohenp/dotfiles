@@ -1,1 +1,0 @@
-/remote/us01home9/josee/.vim/colors/josee.vim
