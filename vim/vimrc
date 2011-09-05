@@ -163,8 +163,10 @@ command! -nargs=0 -bang WQa wqa<bang>
 runtime! macros/matchit.vim
 
 "" use 'vim -t <funtion_name>' or 'vim -t <filename>':
-set tags=$RVR/syn/mainsh/tags
-"set tags=$RVR_ICC/syn/icc_sh/tags
+if exists("$RVR")
+  set tags+=$RVR/syn/mainsh/tags
+  "set tags=$RVR_ICC/syn/icc_sh/tags
+endif
 
 "set verbose=9
 
@@ -212,6 +214,4 @@ if !exists(":DiffOrig")
   command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
 		  \ | wincmd p | diffthis
 endif
-
-fixdel
 
