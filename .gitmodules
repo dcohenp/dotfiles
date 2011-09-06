@@ -4,3 +4,6 @@
 [submodule "vim/vim/bundle/taglist"]
 	path = vim/vim/bundle/taglist
 	url = https://github.com/vim-scripts/taglist.vim.git
+[submodule "vim/vim/bundle/NERD_Tree-and-ack"]
+	path = vim/vim/bundle/NERD_Tree-and-ack
+	url = https://github.com/vim-scripts/NERD_Tree-and-ack.git
