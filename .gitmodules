@@ -14,3 +14,6 @@
 [submodule "vim/vim/bundle/vim-repeat"]
 	path = vim/vim/bundle/vim-repeat
 	url = https://github.com/tpope/vim-repeat.git
+[submodule "vim/vim/bundle/vim-markdown"]
+	path = vim/vim/bundle/vim-markdown
+	url = https://github.com/tpope/vim-markdown.git
