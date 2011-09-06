@@ -1,3 +1,5 @@
 .DS_Store
 vim/vim/.netrwhist
 .*.swp
+vim/vim/bundle/taglist/doc/tags
+
