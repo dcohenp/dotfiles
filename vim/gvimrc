@@ -3,7 +3,7 @@ set cursorline
 
 set background=light
 colorscheme solarized
-set guifont=Liberation\ Mono\ 8
+set guifont=Liberation\ Mono\ 8,Consolas
 set lines=75 columns=162
 set guioptions-=T
 "set guioptions-=m
