@@ -39,10 +39,6 @@ endif
 "" have further <Tab>s cycle through the possibilities:
 set wildmode=list:longest,full
 
-"" when using list, keep tabs at their full width and display `arrows':
-" (Character 187 is a right double-chevron, and 183 a mid-dot.)
-"execute 'set listchars+=tab:' . nr2char(187) . nr2char(183)
-
 "" have the mouse enabled all the time:
 if has('mouse')
   set mouse=a
@@ -129,7 +125,6 @@ set hlsearch
 "" displayeds
 nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 
-
 "" Estas tres lineas definen comandos ficticios para "Q", "W" y "Wq" que
 "" equivalen respectivamente a "q", "w" y "wq".
 command! -bang W write<bang>
@@ -139,20 +134,9 @@ command! -nargs=0 -bang Qa qa<bang>
 command! -nargs=0 -bang Wqa wqa<bang>
 command! -nargs=0 -bang WQa wqa<bang>
 
-"" Por defecto se usan las combinaciones de teclas "Ctrl-N" y "Ctrl-P" para
-"" autocompletar texto. Esta funcion hace una reasignacion de teclas para
-"" poder completar usando el tabulador.
-"function InsertTabWrapper()
-"    let col = col('.') - 1
-"    if !col || getline('.')[col - 1] !~ '\k'
-"        return "\<tab>"
-"    else
-"        return "\<c-p>"
-"    endif
-"endfunction
-"
-"inoremap <Tab> <C-R>=InsertTabWrapper()<CR>
-
+"" when using list, keep tabs at their full width and display `arrows':
+" (Character 187 is a right double-chevron, and 183 a mid-dot.)
+"execute 'set listchars+=tab:' . nr2char(187) . nr2char(183)
 "set list
 "set listchars=tab:>.
 
@@ -162,18 +146,6 @@ command! -nargs=0 -bang WQa wqa<bang>
 "" y sentencias similares de cada lenguaje de programacion.
 runtime! macros/matchit.vim
 
-"" use 'vim -t <funtion_name>' or 'vim -t <filename>':
-if exists("$RVR")
-  set tags+=$RVR/syn/mainsh/tags
-  "set tags=$RVR_ICC/syn/icc_sh/tags
-endif
-
-"set verbose=9
-
-"" virtualedit permite situar el cursor en posiciones de la pantalla donde
-"" no hay texto
-"set virtualedit=all
-
 " Map \v to open a new tab and edit this .vimrc file. Use \V to load it.
 map \v :tabnew $MYVIMRC<CR><C-W>
 map <silent> \V :source $MYVIMRC<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
@@ -182,10 +154,11 @@ map <silent> \V :source $MYVIMRC<CR>:filetype detect<CR>:exe ":echo 'vimrc reloa
 map \h :tabprevious<CR>
 map \l :tabnext<CR>
 
+" Use Ctrl-\ to open a tag definition in a new tab.
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 
+" Map \d to insert the current date
 if exists("*strftime")
-  " Map \d to insert the current date
   nnoremap \d "=strftime("%b %d, %Y")<CR>P
   inoremap \d <C-R>=strftime("%b %d, %Y")<CR>
 endif
@@ -213,5 +186,11 @@ set splitbelow
 if !exists(":DiffOrig")
   command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
 		  \ | wincmd p | diffthis
+endif
+
+" Synopsys-specific tag files
+if exists("$RVR")
+  set tags+=$RVR/syn/mainsh/tags
+  "set tags=$RVR_ICC/syn/icc_sh/tags
 endif
 
