@@ -1,6 +1,11 @@
 "" Highlight the screen line of the cursor with CursorLine
 set cursorline
 
+" Enable syntax highlighting 
+if has('syntax')
+        syntax enable
+endif
+
 set background=light
 colorscheme solarized
 set guifont=Liberation\ Mono\ 8,Consolas

@@ -24,11 +24,9 @@ map Q gq
 if has('syntax') && (&t_Co > 2)
         syntax enable
 
-        "highlight Pmenu      ctermbg=grey ctermfg=black
-        "highlight PmenuSel   cterm=bold,reverse ctermbg=black ctermfg=yellow
-        "highlight PmenuSbar  ctermbg=blue
-        "highlight PmenuThumb ctermfg=lightblue
-
+        " TODO: This shouldn't go here, but in the autocommands section.
+        " However, as I still don't know how to use them, I'll leave this
+        " lines here for the moment.
         let c_gnu          = 1
         let c_space_errors = 1
 
