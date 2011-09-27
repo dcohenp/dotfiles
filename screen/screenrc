@@ -20,12 +20,6 @@ deflogin on
 # hardstatusline
 hardstatus on
 hardstatus alwayslastline
-#hardstatus string '%{= kG}%-Lw%{= kW}%50> %n%f* %t%{= kG}%+Lw%< %{= kG}%-=%c:%s%{-}'
-#hardstatus string '%{= kG}%-Lw%{= kW}%50> %n%f* %t%{= kG}%+Lw%<'
-#hardstatus string '%{=b}%{G} %{b}%w %=%{kG}%C%A  %D, %M/%d/%Y'
-#hardstatus string "%{=b}%{G} %{c}%w %=%{kG}%C%A %D, %M/%d/%Y"
-#hardstatus string "%{.1099} %-w%{.bg}%n %t%{-}%+w %=%H %c:%s "
-#hardstatus string "%{.1099} %-w%{= BW}%n %t%{-}%+w %=%{kG}%c %m.%d.%Y"
 hardstatus string "%{= kr}[ %H %{kR}Load: %l %{-}] %{= ky}%-w%{= rW}%n %t%{-}%+w %-=%{kg} %c %m.%d.%Y"
 
 #caption always
