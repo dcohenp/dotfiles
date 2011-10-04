@@ -10,10 +10,11 @@ defutf8 on
 defscrollback 20000
 nonblock on
 
-term xterm
+# term xterm
 # termcapinfo xterm-color|rxvt ti@:te@
 # termcapinfo xterm ti@:te@
-termcapinfo xterm|xterms|xs|rxvt ti@:te@
+# termcapinfo xterm|xterms|xs|rxvt ti@:te@
+termcapinfo xterm* ti@:te@
 
 deflogin on
 

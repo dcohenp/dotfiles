@@ -148,9 +148,11 @@ runtime! macros/matchit.vim
 map \v :tabnew $MYVIMRC<CR><C-W>
 map <silent> \V :source $MYVIMRC<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 
-" Use \h and \l to move between tabs
-map \h :tabprevious<CR>
-map \l :tabnext<CR>
+" Use Alt-Shift-{ and Alt-Shift-} to move between tabs
+map { :tabprevious<CR>
+map } :tabnext<CR>
+
+
 
 " Use Ctrl-\ to open a tag definition in a new tab.
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
