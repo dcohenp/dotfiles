@@ -22,3 +22,5 @@ map \t :tabnew<CR>
 
 set guicursor+=n:blinkon0
 
+set visualbell t_vb=
+
