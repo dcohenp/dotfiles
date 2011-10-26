@@ -1,3 +1,5 @@
+# gitignore global file taken from http://help.github.com/ignore-files/ 
+
 # Compiled source #
 ###################
 *.com
