@@ -8,7 +8,7 @@ endif
 
 set background=light
 colorscheme solarized
-set guifont=Liberation_Mono:h8:cANSI,Ubuntu_Mono:h10:cANSI,Consolas:h10:cANSI
+set guifont=Liberation\ Mono\ 8,Ubuntu_Mono:h10:cANSI,Consolas:h10:cANSI
 set lines=75 columns=162
 set guioptions-=T
 "set guioptions-=m
