@@ -1,0 +1,10 @@
+[user]
+	name = Raúl Acuña
+	email = reacuna@algometrics.cl
+[github]
+	user = reacuna
+	token = 0f1bde27fbc9981d7299dfcc8c25047b
+[color]
+	ui = true
+[help]
+	format = web
