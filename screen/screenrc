@@ -16,7 +16,7 @@ nonblock on
 # termcapinfo xterm|xterms|xs|rxvt ti@:te@
 termcapinfo xterm* ti@:te@
 
-deflogin on
+# deflogin on
 
 # hardstatusline
 hardstatus on
