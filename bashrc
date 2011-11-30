@@ -8,6 +8,11 @@
 # Set default editor to vim
 export EDITOR=vim
 
+# Set locale
+unset LC_CTYPE
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+
 # don't put duplicate lines in the history. See bash(1) for more options
 # don't overwrite GNU Midnight Commander's setting of `ignorespace'.
 export HISTCONTROL=$HISTCONTROL${HISTCONTROL+,}ignoredups
@@ -95,5 +100,3 @@ fi
 
 export NODE_PATH=/usr/local/lib/node:/usr/local/lib/node_modules:$NODE_PATH
 
-# Set LC_CTYPE value to current value, but prepended with en_US.
-#export LC_CTYPE=${LC_CTYPE/#/en_US.}
