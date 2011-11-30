@@ -40,7 +40,7 @@ set_color_prompt () {
   if [ "$color_prompt" = yes ]; then
     case "$HOSTNAME" in
     limones*|celso*) HIGHLIGHT_COLOR="${BOLD_GREEN}" ;;
-    *) echo HIGHLIGHT_COLOR="${BOLD_RED}" ;;
+    *) HIGHLIGHT_COLOR="${BOLD_RED}" ;;
     esac
     PS1="${debian_chroot:+($debian_chroot)}${HIGHLIGHT_COLOR}\u@\h$NO_COLOR:$BOLD_BLUE\w$NO_COLOR\$ "
   else
