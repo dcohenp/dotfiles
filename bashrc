@@ -6,10 +6,13 @@
 [ -z "$PS1" ] && return
 
 set_color_prompt () {
-  BOLD_RED="\e[01;31m"
-  BOLD_GREEN="\e[01;32m"
-  BOLD_BLUE="\e[01;34m"
-  NO_COLOR="\e[m"
+  BOLD_RED="\[\e[01;31m\]"
+  BOLD_GREEN="\[\e[01;32m\]"
+  BOLD_BLUE="\[\e[01;34m\]"
+  RED="\[\e[00;31m\]"
+  GREEN="\[\e[00;32m\]"
+  BLUE="\[\e[00;34m\]"
+  NO_COLOR="\[\e[m\]"
 
   # set variable identifying the chroot you work in (used in the prompt below)
   if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
@@ -39,10 +42,10 @@ set_color_prompt () {
 
   if [ "$color_prompt" = yes ]; then
     case "$HOSTNAME" in
-    limones*|celso*) HIGHLIGHT_COLOR="${BOLD_GREEN}" ;;
-    *) HIGHLIGHT_COLOR="${BOLD_RED}" ;;
+    limones*|celso*) HIGHLIGHT_COLOR="${GREEN}" ;;
+    *) HIGHLIGHT_COLOR="${RED}" ;;
     esac
-    PS1="${debian_chroot:+($debian_chroot)}${HIGHLIGHT_COLOR}\u@\h$NO_COLOR:$BOLD_BLUE\w$NO_COLOR\$ "
+    PS1="${debian_chroot:+($debian_chroot)}${HIGHLIGHT_COLOR}\u@\h${NO_COLOR}:${BLUE}\w${NO_COLOR}\$ "
   else
     PS1="${debian_chroot:+($debian_chroot)}\u@\h:\w\$ "
   fi
