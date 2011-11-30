@@ -1,10 +1,15 @@
 [user]
 	name = Raúl Acuña
 	email = reacuna@algometrics.cl
+[color]
+	ui = auto
+[core]
+	editor = "mvim -f"
+	excludesfile = ~/.gitignore_global
 [github]
 	user = reacuna
 	token = 0f1bde27fbc9981d7299dfcc8c25047b
-[color]
-	ui = true
+[alias]
+	graph = log --graph --pretty=format:'%Creset%h -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date-order --all
 [help]
 	format = web
