@@ -16,7 +16,7 @@ set_color_prompt () {
 
   # set variable identifying the chroot you work in (used in the prompt below)
   if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
-      debian_chroot=$(cat /etc/debian_chroot)
+    debian_chroot=$(cat /etc/debian_chroot)
   fi
 
   # set a fancy prompt (non-color, unless we know we "want" color)
@@ -42,14 +42,25 @@ set_color_prompt () {
 
   if [ "$color_prompt" = yes ]; then
     case "$HOSTNAME" in
-    limones*|celso*) HIGHLIGHT_COLOR="${GREEN}" ;;
-    *) HIGHLIGHT_COLOR="${RED}" ;;
+      limones*|celso*) HIGHLIGHT_COLOR="${GREEN}" ;;
+      *) HIGHLIGHT_COLOR="${RED}" ;;
     esac
+
     PS1="${debian_chroot:+($debian_chroot)}${HIGHLIGHT_COLOR}\u@\h${NO_COLOR}:${BLUE}\w${NO_COLOR}\$ "
   else
     PS1="${debian_chroot:+($debian_chroot)}\u@\h:\w\$ "
   fi
 
+  # If this is an xterm set the title to user@host:dir
+  case "$TERM" in
+    xterm*|rxvt*)
+      PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+      ;;
+    *)
+      ;;
+  esac
+
+  unset BOLD_RED BOLD_GREEN BOLD_BLUE RED GREEN BLUE NO_COLOR HIGHLIGHT_COLOR color_prompt force_color_prompt
 }
 
 # Set default editor to vim
@@ -81,15 +92,6 @@ shopt -s checkwinsize
 if [ `which lesspipe.sh` ]; then eval `lesspipe.sh`; fi
 
 set_color_prompt
-
-# If this is an xterm set the title to user@host:dir
-case "$TERM" in
-xterm*|rxvt*)
-    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-    ;;
-*)
-    ;;
-esac
 
 # Alias definitions are in ~/.bash_aliases
 if [ -f ~/.bash_aliases ]; then
