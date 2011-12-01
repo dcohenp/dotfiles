@@ -42,7 +42,7 @@ set_color_prompt () {
 
   if [ "$color_prompt" = yes ]; then
     case "$HOSTNAME" in
-      limones*|celso*) HIGHLIGHT_COLOR="${GREEN}" ;;
+      Limones*|celso*) HIGHLIGHT_COLOR="${GREEN}" ;;
       *) HIGHLIGHT_COLOR="${RED}" ;;
     esac
 
