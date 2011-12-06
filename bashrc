@@ -5,15 +5,18 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
-set_color_prompt () {
-  BOLD_RED="\[\e[01;31m\]"
-  BOLD_GREEN="\[\e[01;32m\]"
-  BOLD_BLUE="\[\e[01;34m\]"
-  RED="\[\e[00;31m\]"
-  GREEN="\[\e[00;32m\]"
-  BLUE="\[\e[00;34m\]"
-  NO_COLOR="\[\e[m\]"
+# Define some colors
+BOLD_RED="\[\e[01;31m\]"
+BOLD_GREEN="\[\e[01;32m\]"
+BOLD_BLUE="\[\e[01;34m\]"
+RED="\[\e[00;31m\]"
+GREEN="\[\e[00;32m\]"
+BLUE="\[\e[00;34m\]"
+NO_COLOR="\[\e[m\]"
 
+
+
+set_color_prompt () {
   # set variable identifying the chroot you work in (used in the prompt below)
   if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
     debian_chroot=$(cat /etc/debian_chroot)
@@ -60,7 +63,7 @@ set_color_prompt () {
       ;;
   esac
 
-  unset BOLD_RED BOLD_GREEN BOLD_BLUE RED GREEN BLUE NO_COLOR HIGHLIGHT_COLOR color_prompt force_color_prompt
+  unset HIGHLIGHT_COLOR color_prompt force_color_prompt
 }
 
 # Set default editor to vim
@@ -120,4 +123,5 @@ fi
 
 export NODE_PATH=/usr/local/lib/node:/usr/local/lib/node_modules:$NODE_PATH
 
-
+# Clean color settings
+unset BOLD_RED BOLD_GREEN BOLD_BLUE RED GREEN BLUE NO_COLOR
