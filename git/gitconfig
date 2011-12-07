@@ -11,5 +11,6 @@
 	token = 0f1bde27fbc9981d7299dfcc8c25047b
 [alias]
 	graph = log --graph --pretty=format:'%Creset%h -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date-order --all
+        ci = commit -a -m 
 [help]
 	format = web
