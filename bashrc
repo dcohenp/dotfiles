@@ -48,18 +48,18 @@ git_prompt () {
     echo "[$git_color$git_branch${NO_COLOR}]"
 }
 
-set_color_prompt () {
+set_prompt () {
     case "$HOSTNAME" in
         Limones*|celso*) HIGHLIGHT_COLOR="${GREEN}" ;;
         *) HIGHLIGHT_COLOR="${RED}" ;;
     esac
 
-    PROMPT_DISPLAY="${HIGHLIGHT_COLOR}\u@\h${NO_COLOR}:${BLUE}\w${NO_COLOR}"
+    PROMPT_DISPLAY="${HIGHLIGHT_COLOR}\h${NO_COLOR}:${BLUE}\w${NO_COLOR}"
 
     # If this is an xterm set the title to user@host:dir
     case "$TERM" in
     xterm*|rxvt*)
-        PROMPT_COMMAND='PS1="\[\e]0;\u@\h: \w\a\]${PROMPT_DISPLAY}$(git_prompt)\$ "'
+        PROMPT_COMMAND='PS1="\[\e]0;\h: \w\a\]${PROMPT_DISPLAY}$(git_prompt)\$ "'
         ;;
     *)
         PROMPT_COMMAND='PS1="${PROMPT_DISPLAY}$(git_prompt)\$ "'
@@ -95,7 +95,7 @@ shopt -s checkwinsize
 
 if [ `which lesspipe.sh` ]; then eval `lesspipe.sh`; fi
 
-set_color_prompt
+set_prompt
 
 # Alias definitions are in ~/.bash_aliases
 if [ -f ~/.bash_aliases ]; then
