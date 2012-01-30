@@ -24,4 +24,4 @@
         ignore = untracked
 [submodule "vim/vim/bundle/mustache"]
 	path = vim/vim/bundle/mustache
-	url = git://github.com/juvenn/mustache.vim.git
+	url = https://github.com/juvenn/mustache.vim.git
