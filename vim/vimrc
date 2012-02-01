@@ -72,11 +72,14 @@ if has("autocmd")
   augroup vimrcEx
   au!
 
-  " For all text files set 'textwidth' to 78 characters.
-  autocmd FileType text setlocal textwidth=78
+  " For all text files set 'textwidth' to 79 characters.
+  autocmd FileType text setlocal textwidth=79
 
   " For python files, indent using 4 spaces
   autocmd FileType python setlocal softtabstop=4 shiftwidth=4
+
+  " Autoformat gitcommit files
+  autocmd FileType gitcommit setlocal formatoptions+=ta
 
   autocmd FileType javascript
     \ setlocal softtabstop=4 shiftwidth=4 textwidth=79
@@ -101,10 +104,6 @@ else
   " always set autoindenting on
   set autoindent
 endif " has("autocmd")
-
-" normally don't automatically format `text' as it is typed, only do this
-" with comments
-set formatoptions-=t
 
 "" make searches case-insensitive, unless they contain upper-case letters:
 set ignorecase
