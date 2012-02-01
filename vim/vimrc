@@ -78,6 +78,9 @@ if has("autocmd")
   " For python files, indent using 4 spaces
   autocmd FileType python setlocal softtabstop=4 shiftwidth=4
 
+  autocmd FileType javascript
+    \ setlocal softtabstop=4 shiftwidth=4 textwidth=79
+
   " When editing a file, always jump to the last known cursor position.
   " Don't do it when the position is invalid or when inside an event handler
   " (happens when dropping a file on gvim).
