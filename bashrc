@@ -50,7 +50,7 @@ git_prompt () {
 
 set_prompt () {
     case "$HOSTNAME" in
-        Limones*|celso*) HIGHLIGHT_COLOR="${GREEN}" ;;
+        limones*|celso*) HIGHLIGHT_COLOR="${GREEN}" ;;
         *) HIGHLIGHT_COLOR="${RED}" ;;
     esac
 
