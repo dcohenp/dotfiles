@@ -27,10 +27,6 @@ if [ -d "/usr/local/mysql/bin" ] ; then
 	PATH="/usr/local/mysql/bin:$PATH"
 fi
 
-if [ -d "/opt/jruby/bin" ] ; then
-	PATH=$PATH:/opt/jruby/bin
-fi
-
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ] ; then
 	PATH="$HOME/bin:$PATH"
@@ -44,6 +40,11 @@ fi
 # PostgreSQL bin
 if [ -d "/Library/PostgreSQL/9.0/bin/" ] ; then
 	PATH="/Library/PostgreSQL/9.0/bin/:${PATH}"
+fi
+
+# Homebrew version-specific ruby install
+if [ -d "/usr/local/Cellar/ruby/1.9.3-p125/bin" ] ; then
+	PATH="/usr/local/Cellar/ruby/1.9.3-p125/bin:${PATH}"
 fi
 
 # adding Grails bin to the PATH"
