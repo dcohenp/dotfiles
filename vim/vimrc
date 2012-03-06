@@ -74,17 +74,6 @@ if has("autocmd")
   augroup vimrcEx
   au!
 
-  " For all text files set 'textwidth' to 79 characters.
-  autocmd FileType text setlocal textwidth=79
-
-  " For python files, indent using 4 spaces
-  autocmd FileType python setlocal softtabstop=4 shiftwidth=4
-
-  " Autoformat gitcommit files
-  autocmd FileType gitcommit setlocal formatoptions+=ta
-
-  autocmd FileType javascript setlocal softtabstop=4 shiftwidth=4 textwidth=79
-
   " When editing a file, always jump to the last known cursor position.
   " Don't do it when the position is invalid or when inside an event handler
   " (happens when dropping a file on gvim).
@@ -197,11 +186,5 @@ set splitbelow
 if !exists(":DiffOrig")
   command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
 		  \ | wincmd p | diffthis
-endif
-
-" Synopsys-specific tag files
-if exists("$RVR")
-  set tags+=$RVR/syn/mainsh/tags
-  "set tags=$RVR_ICC/syn/icc_sh/tags
 endif
 
