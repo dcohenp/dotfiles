@@ -122,7 +122,3 @@ if [ -f ${BREW_PREFIX}/etc/bash_completion ]; then
     . ${BREW_PREFIX}/etc/bash_completion
 fi
 
-export NODE_PATH=/usr/local/lib/node:/usr/local/lib/node_modules:$NODE_PATH
-export PYTHONPATH=/usr/local/share/python:/usr/local/lib/python:$PYTHONPATH
-
-# Clean color settings
