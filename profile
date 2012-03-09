@@ -55,7 +55,7 @@ fi
 
 export PATH
 
-export NODE_PATH=/usr/local/lib/node:/usr/local/lib/node_modules:$NODE_PATH
+export NODE_PATH=/usr/local/lib/node:/usr/local/lib/node_modules:/usr/local/lib/jsctags/:$NODE_PATH
 export PYTHONPATH=/usr/local/share/python:/usr/local/lib/python:$PYTHONPATH
 
 # vim: filetype=sh
