@@ -26,11 +26,10 @@ set autoread
 set report=0            " report all changes
 set scrolloff=4         " show some lines around the cursor
 
-" Don't use swap files
-set noswapfile
-" But, if you are going to use them create swap files in this folders (in this
-" order).
+" Create swap files in this folders (in this order).
 set directory=~/tmp,/var/tmp,/tmp,.
+" But just don't create swap files.
+set noswapfile
 
 set wildmenu
 set wildmode=list,full
