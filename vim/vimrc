@@ -32,7 +32,7 @@ set directory=~/tmp,/var/tmp,/tmp,.
 set noswapfile
 
 set wildmenu
-set wildmode=list,full
+set wildmode=longest:full,full
 
 
 " CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
