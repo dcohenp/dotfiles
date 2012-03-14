@@ -1,2 +1,14 @@
+# Use vi-style line editing commands
+set editing-mode vi
 # Ignore case when using bash-completion.
 set completion-ignore-case on
+
+# See http://www.gnu.org/software/bash/manual/bash.html#Readline-Init-File for
+# an explanation of these options.
+
+set mark-directories on
+set mark-symlinked-directories on
+set show-all-if-ambiguous on
+set show-all-if-unmodified on
+set skip-completed-text on
+
