@@ -4,7 +4,7 @@
 [color]
 	ui = auto
 [core]
-	editor = "mvim -f"
+	editor = "mvim -f --nomru"
 	excludesfile = ~/.gitignore_global
 [github]
 	user = reacuna
