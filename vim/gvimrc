@@ -6,12 +6,23 @@ if has('syntax')
         syntax enable
 endif
 
+if has("gui_running")
+    if has("gui_gtk2")
+        :set guifont=Liberation\ Mono\ 11
+    elseif has("x11")
+        " Also for GTK 1
+        :set guifont=*-lucidatypewriter-medium-r-normal-*-*-180-*-*-m-*-*
+    elseif has("gui_win32")
+        :set guifont=Luxi_Mono:h12:cANSI
+    elseif has("gui_macvim")
+        :set guifont=Menlo:h10
+        :set linespace=3
+    endif
+endif
+
 set background=light
 colorscheme solarized
-set guifont=Liberation\ Mono\ 8,Ubuntu_Mono:h10:cANSI,Consolas:h10:cANSI
-set lines=75 columns=162
 set guioptions-=T
-"set guioptions-=m
 set guioptions-=r
 set guioptions-=L
 
@@ -49,3 +60,4 @@ if exists("+showtabline")
   set showtabline=2
   set tabline=%!MyTabLine()
 endif
+

@@ -151,8 +151,6 @@ map <silent> \V :source $MYVIMRC<CR>:filetype detect<CR>:exe ":echo 'vimrc reloa
 map { :tabprevious<CR>
 map } :tabnext<CR>
 
-
-
 " Use Ctrl-\ to open a tag definition in a new tab.
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 

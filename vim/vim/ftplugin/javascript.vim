@@ -6,3 +6,11 @@ setlocal textwidth=79
 
 " setlocal foldmethod=indent
 setlocal foldcolumn=4
+
+setlocal makeprg=jslint\ %
+setlocal errorformat=%-P%f,
+                    \%-G/*jslint\ %.%#*/,
+                    \%*[\ ]%n\ %l\\,%c:\ %m,
+                    \%-G\ \ \ \ %.%#,
+                    \%-GNo\ errors\ found.,
+                    \%-Q
