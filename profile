@@ -39,7 +39,7 @@ fi
 
 # PostgreSQL bin
 if [ -d "/Library/PostgreSQL/9.0/bin/" ] ; then
-	PATH="/Library/PostgreSQL/9.0/bin/:${PATH}"
+	PATH="/Library/PostgreSQL/9.0/bin:${PATH}"
 fi
 
 # Homebrew version-specific ruby install
