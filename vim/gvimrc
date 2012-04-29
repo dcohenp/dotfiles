@@ -20,7 +20,7 @@ if has("gui_running")
     endif
 endif
 
-set background=light
+set background=dark
 colorscheme solarized
 set guioptions-=T
 set guioptions-=r

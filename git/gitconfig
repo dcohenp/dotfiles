@@ -1,21 +1,14 @@
 [user]
-	name = Raúl Acuña
-	email = reacuna@gmail.com
+    name = Daniel Cohen
 [color]
-	ui = auto
+    ui = auto
 [core]
-	editor = "mvim -f --nomru"
-	excludesfile = ~/.gitignore_global
-[github]
-	user = reacuna
+#    editor = "mvim -f --nomru"
+    excludesfile = ~/.gitignore_global
 [alias]
-	graph = log --graph --pretty=format:'%Creset%h -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date-order --all
-        ci = commit -a -m 
+    graph = log --graph --pretty=format:'%Creset%h -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date-order --all
+    ci = commit -a -m 
 [help]
-	format = web
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+    format = web
+[include]
+    path = .gitconfig.local

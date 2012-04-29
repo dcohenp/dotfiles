@@ -9,10 +9,10 @@ call pathogen#helptags()
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
-"" use indents of 2 spaces, and have them copied down lines:
-set tabstop=8
-set softtabstop=2
-set shiftwidth=2
+"" use indents of 4 spaces, and have them copied down lines:
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
 set shiftround
 set smarttab
 set expandtab

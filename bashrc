@@ -50,11 +50,11 @@ git_prompt () {
 
 set_prompt () {
     case "$HOSTNAME" in
-        limones*|celso*) HIGHLIGHT_COLOR="${GREEN}" ;;
+        eizbook*) HIGHLIGHT_COLOR="${GREEN}" ;;
         *) HIGHLIGHT_COLOR="${RED}" ;;
     esac
 
-    PROMPT_DISPLAY="${HIGHLIGHT_COLOR}\h${NO_COLOR}:${BLUE}\w${NO_COLOR}"
+    PROMPT_DISPLAY="${HIGHLIGHT_COLOR}\u@\h${NO_COLOR}:${BLUE}\w${NO_COLOR}"
 
     # If this is an xterm set the title to user@host:dir
     case "$TERM" in
@@ -67,13 +67,9 @@ set_prompt () {
     esac
 }
 
-# Set default editor to vim
 export EDITOR=vim
-
-# Set locale
-unset LC_CTYPE
-export LANG=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
+export LESS="-F -X -I -R"
+export PAGER="less"
 
 # don't put duplicate lines in the history. See bash(1) for more options
 # don't overwrite GNU Midnight Commander's setting of `ignorespace'.
@@ -105,9 +101,9 @@ fi
 # enable color support of ls
 if [ -x /usr/bin/dircolors ]; then
     eval "`dircolors -b`"
-    alias ls='ls --color=auto'
+    alias ls='ls --color=auto -CF'
 else
-    alias ls='ls -G'
+    alias ls='ls -CFG'
 fi
 
 # Check if homebrew is installed (package system for Mac OS X)

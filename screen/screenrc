@@ -26,14 +26,6 @@ hardstatus string "%{= kr}[ %H %{kR}Load: %l %{-}] %{= ky}%-w%{= rW}%n %t%{-}%+w
 #caption always
 #caption string "%{+b rk}%H%{gk} |%c %{yk}%m.%d.%Y | %72=Load: %l %{wk}"
 
-# Startup settings
-screen -t Regressions 0
-screen -t Run         1
-screen -t Code        2
-screen -t Compile     3
-screen -t ClientStore 4
-select 0
-
 # Fix stupid screen overwriting
 altscreen on
 
