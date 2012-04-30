@@ -1,0 +1,16 @@
+# Mac OS X-specific bashrc
+
+# Check if homebrew is installed (package system for Mac OS X)
+if [ `which brew 2> /dev/null` ]; then
+    BREW_PREFIX=`brew --prefix`
+
+    # enable programmable completion features (you don't need to enable
+    # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+    # sources /etc/bash.bashrc).
+    if [ -f ${BREW_PREFIX}/etc/bash_completion ]; then
+        . ${BREW_PREFIX}/etc/bash_completion
+    fi
+fi
+
+# vim: filetype=sh
+

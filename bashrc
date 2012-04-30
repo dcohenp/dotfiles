@@ -5,6 +5,12 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
+# Utility functions to quickly modify PATH
+# Based on http://stackoverflow.com/questions/370047/what-is-the-most-elegant-way-to-remove-a-path-from-the-path-variable-in-bash
+path_append ()  { path_remove $1; export PATH="$PATH:$1"; }
+path_prepend () { path_remove $1; export PATH="$1:$PATH"; }
+path_remove ()  { export PATH=`echo -n $PATH | awk -v RS=: -v ORS=: '$0 != "'$1'"' | sed 's/:$//'`; }
+
 # Define some colors
 if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
     # We have color support; assume it's compliant with Ecma-48
@@ -89,7 +95,7 @@ shopt -s checkwinsize
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
-if [ `which lesspipe.sh` ]; then eval `lesspipe.sh`; fi
+if [ `which lesspipe.sh 2> /dev/null` ]; then eval `lesspipe.sh`; fi
 
 set_prompt
 
@@ -106,15 +112,8 @@ else
     alias ls='ls -CFG'
 fi
 
-# Check if homebrew is installed (package system for Mac OS X)
-if [ `which brew` ]; then
-  BREW_PREFIX=`brew --prefix`
-fi
-
-# enable programmable completion features (you don't need to enable
-# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
-# sources /etc/bash.bashrc).
-if [ -f ${BREW_PREFIX}/etc/bash_completion ]; then
-    . ${BREW_PREFIX}/etc/bash_completion
+# Allow for an environment-specific bashrc
+if [ -f ~/.bashrc.local ]; then
+    . ~/.bashrc.local
 fi
 
