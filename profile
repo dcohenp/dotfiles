@@ -18,20 +18,15 @@ unset LC_CTYPE
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
-PATH="/usr/local/bin:/usr/local/sbin:${PATH}"
-
 # Arch-specific profiles
-if [ -f "$HOME/.profile_osx" ]; then
-    . "$HOME/.profile_osx"
-elif [ -f "$HOME/.profile_linux" ]; then
-    . "$HOME/.profile_linux"
+if [ -f "$HOME/.profile.local" ]; then
+    . "$HOME/.profile.local"
 fi
 
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ] ; then
 	PATH="$HOME/bin:$PATH"
 fi
-
 
 export PATH
 

@@ -56,7 +56,7 @@ git_prompt () {
 
 set_prompt () {
     case "$HOSTNAME" in
-        eizbook*) HIGHLIGHT_COLOR="${GREEN}" ;;
+        eizbook*|hplc*|cl01*) HIGHLIGHT_COLOR="${GREEN}" ;;
         *) HIGHLIGHT_COLOR="${RED}" ;;
     esac
 
@@ -109,7 +109,7 @@ if [ -x /usr/bin/dircolors ]; then
     eval "`dircolors -b`"
     alias ls='ls --color=auto -CF'
 else
-    alias ls='ls -CFG'
+    alias ls='ls -CF'
 fi
 
 # Allow for an environment-specific bashrc

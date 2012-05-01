@@ -12,5 +12,8 @@ if [ `which brew 2> /dev/null` ]; then
     fi
 fi
 
+# System local PATHs for homebrew and possibly others
+export PATH="/usr/local/bin:/usr/local/sbin:${PATH}"
+
 # vim: filetype=sh
 
