@@ -39,20 +39,36 @@ fi
 # Function to assemble the Git part of our prompt.
 # Based on https://gist.github.com/828432
 git_prompt () {
-    if ! git rev-parse --git-dir > /dev/null 2>&1; then
-        return 0
+    git_prompt_str=""
+    if git rev-parse --git-dir > /dev/null 2>&1; then
+        local git_branch=$(git branch 2>/dev/null| sed -n '/^\*/s/^\* //p')
+
+        if git diff --quiet 2>/dev/null >&2; then
+            local git_color="${GREEN}"
+        else
+            local git_color="${RED}"
+        fi
+        git_prompt_str="${BLUE}[${git_color}${git_branch}${BLUE}]"
     fi
 
-    git_branch=$(git branch 2>/dev/null| sed -n '/^\*/s/^\* //p')
 
-    if git diff --quiet 2>/dev/null >&2; then
-        git_color="${GREEN}"
-    else
-        git_color="${RED}"
-    fi
-
-    echo "[$git_color$git_branch${NO_COLOR}]"
+    # Also add pwd
+    echo "${git_prompt_str}$(cwd_prompt)"
 }
+
+cwd_prompt() {
+    local dir="$PWD"
+    # Substitute home by tilde
+    if [[ "$HOME" == ${dir:0:${#HOME}} ]] ; then
+        dir="~${dir:${#HOME}}"
+    fi
+    echo "${BLUE}$dir"
+}
+
+# This variable holds the name of the function
+# which generates the "current directory" part of the prompt
+prompt_dir_generator=cwd_prompt
+alias gitprompt="prompt_dir_generator=git_prompt"
 
 set_prompt () {
     case "$HOSTNAME" in
@@ -60,17 +76,13 @@ set_prompt () {
         *) HIGHLIGHT_COLOR="${RED}" ;;
     esac
 
-    PROMPT_DISPLAY="${HIGHLIGHT_COLOR}\u@\h${NO_COLOR}:${BLUE}\w${NO_COLOR}"
-
     # If this is an xterm set the title to user@host:dir
     case "$TERM" in
     xterm*|rxvt*)
-        PROMPT_COMMAND='PS1="\[\e]0;\h: \w\a\]${PROMPT_DISPLAY}$(git_prompt)\$ "'
-        ;;
-    *)
-        PROMPT_COMMAND='PS1="${PROMPT_DISPLAY}$(git_prompt)\$ "'
+        local xterm_prompt="\[\e]0;\h: \w\a\]"
         ;;
     esac
+    PROMPT_COMMAND="PS1=\"${xterm_prompt}${HIGHLIGHT_COLOR}\u@\h${NO_COLOR}:\$(\${prompt_dir_generator})${NO_COLOR}\$ \""
 }
 
 export EDITOR=vim
