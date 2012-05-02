@@ -3,12 +3,9 @@
 [color]
     ui = auto
 [core]
-#    editor = "mvim -f --nomru"
     excludesfile = ~/.gitignore_global
 [alias]
     graph = log --graph --pretty=format:'%Creset%h -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date-order --all
     ci = commit -a -m 
-[help]
-    format = web
 [include]
     path = .gitconfig.local
