@@ -107,7 +107,7 @@ shopt -s checkwinsize
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
-if [ `which lesspipe.sh 2> /dev/null` ]; then eval `lesspipe.sh`; fi
+if [ `command -v lesspipe.sh 2> /dev/null` ]; then eval `lesspipe.sh`; fi
 
 set_prompt
 
@@ -118,7 +118,10 @@ fi
 
 # enable color support of ls
 if [ -x /usr/bin/dircolors ]; then
-    eval "`dircolors -b`"
+    if [ -r $HOME/.dircolors ]; then
+        dircolorfile="$HOME/.dircolors"
+    fi
+    eval "`dircolors -b $dircolorfile`"
     alias ls='ls --color=auto -CF'
 else
     alias ls='ls -CF'

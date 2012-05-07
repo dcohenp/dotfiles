@@ -53,10 +53,10 @@ if has('syntax') && (&t_Co > 2)
 endif
 
 "" have the mouse enabled all the time:
-if has('mouse')
-  set mouse=a
-  set ttymouse=xterm2
-endif
+"if has('mouse')
+"  set mouse=a
+"  set ttymouse=xterm2
+"endif
 
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
