@@ -58,6 +58,18 @@ endif
 "  set ttymouse=xterm2
 "endif
 
+" Disable X clipboard support if DISPLAY is set, because it 
+" greatly slows down console vim startup.
+if ! has( "gui_running" )
+    let g:display_num =
+                \ substitute( $DISPLAY ,
+                \ "^[[:alpha:]]*:\([[:digit:]]\+\)\.[[:digit:]]\+$" ,
+                \ "\1" , "" )
+    if ( g:display_num >= 0 )
+        set clipboard=exclude:.*
+    endif
+endif
+
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
 
