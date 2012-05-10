@@ -5,7 +5,10 @@
 [core]
     excludesfile = ~/.gitignore_global
 [alias]
-    graph = log --graph --pretty=format:'%Creset%h -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date-order --all
+    graph = log --graph --decorate --oneline --all
     ci = commit -a -m 
+    st = status
+    co = checkout
+    br = branch
 [include]
     path = .gitconfig.local
