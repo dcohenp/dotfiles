@@ -18,3 +18,6 @@
 	path = vim/vim/bundle/vim-markdown
 	url = https://github.com/tpope/vim-markdown.git
         ignore = untracked
+[submodule "vim/vim/bundle/vimregex"]
+	path = vim/vim/bundle/vimregex
+	url = https://github.com/Raimondi/VimRegEx.vim.git
