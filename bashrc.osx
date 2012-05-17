@@ -15,5 +15,16 @@ fi
 # System local PATHs for homebrew and possibly others
 export PATH="/usr/local/bin:/usr/local/sbin:${PATH}"
 
+# Needs newer MacVim, which appears to be Lion-only
+#export EDITOR="mvim -f -c \'au VimLeave \* \!open -a Terminal\'"
+export EDITOR="mvim -f"
+
+# OS X uses ls -G to show dircolors, so we need new aliases
+alias l='ls -CFG'
+alias la='ls -AG'
+alias ll='ls -CFG -l'
+alias ls='ls -CFG'
+
+
 # vim: filetype=sh
 

@@ -1,7 +1,7 @@
 [user]
     email = dcohenp@crac.cl
-[core]
-    editor = "mvim -f"
+#[core]
+#    editor = "mvim -f"
 [help]
     format = web
 [web]
