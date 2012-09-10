@@ -2,6 +2,9 @@
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
+" 256 color
+set t_Co=256
+
 " Activate pathogen
 call pathogen#infect()
 call pathogen#helptags()
@@ -43,6 +46,7 @@ map Q gq
 " have syntax highlighting in terminals which can display colors:
 if has('syntax') && (&t_Co > 2)
         syntax enable
+        colorscheme zenburn2
 
         " TODO: This shouldn't go here, but in the autocommands section.
         " However, as I still don't know how to use them, I'll leave this
