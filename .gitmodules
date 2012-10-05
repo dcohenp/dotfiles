@@ -21,3 +21,6 @@
 [submodule "vim/vim/bundle/vimregex"]
 	path = vim/vim/bundle/vimregex
 	url = https://github.com/Raimondi/VimRegEx.vim.git
+[submodule "vim/vim/bundle/powerline"]
+	path = vim/vim/bundle/powerline
+	url = https://github.com/Lokaltog/vim-powerline.git
