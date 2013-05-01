@@ -2,6 +2,10 @@
     email = dcohenp@crac.cl
 #[core]
 #    editor = "mvim -f"
+[push]
+    # TODO: move this section to base .gitconfig when I am sure
+    # I'm using 1.7.11 or newer on every machine
+	default = simple
 [help]
     format = web
 [web]
