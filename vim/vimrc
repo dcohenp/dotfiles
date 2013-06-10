@@ -206,3 +206,8 @@ if !exists(":DiffOrig")
 		  \ | wincmd p | diffthis
 endif
 
+" Ctrl-P: support for Perforce projects
+"if exists("g:loaded_ctrlp")
+    let g:ctrlp_root_markers = [ '.p4config' ]
+"endif
+
