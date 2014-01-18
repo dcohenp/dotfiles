@@ -1,7 +1,3 @@
-[user]
-    email = dcohenp@crac.cl
-#[core]
-#    editor = "mvim -f"
 [push]
     # TODO: move this section to base .gitconfig when I am sure
     # I'm using 1.7.11 or newer on every machine
@@ -11,9 +7,9 @@
 [web]
     browser = open
 [diff]
-    tool = gvimdiff
-#[difftool "gvimdiff"]
-#    cmd = "mvimdiff"
+    tool = mvimdiff
+[difftool "mvimdiff"]
+    cmd = mvimdiff -f \"$LOCAL\" \"$REMOTE\"
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
