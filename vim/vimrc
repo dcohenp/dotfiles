@@ -130,12 +130,6 @@ set number
 "" Always show the statusline
 set laststatus=2
 
-"" have <Tab> (and <Shift>+<Tab> where it works) change the level of
-"" indentation:
-"inoremap <Tab> <C-T>
-"inoremap <S-Tab> <C-D>
-"" [<Ctrl>+V <Tab> still inserts an actual tab character.]
-
 "" Highlight searched patterns
 set hlsearch
 
@@ -164,22 +158,15 @@ command! -nargs=0 -bang WQa wqa<bang>
 "" y sentencias similares de cada lenguaje de programacion.
 runtime! macros/matchit.vim
 
+"" Shift-Tab cycles through tabs
+nnoremap <S-tab> :tabn<cr>
+
 " Map \v to open a new tab and edit this .vimrc file. Use \V to load it.
 map \v :tabnew $MYVIMRC<CR><C-W>
 map <silent> \V :source $MYVIMRC<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 
-" Use Alt-Shift-{ and Alt-Shift-} to move between tabs
-map { :tabprevious<CR>
-map } :tabnext<CR>
-
 " Use Ctrl-\ to open a tag definition in a new tab.
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
-
-" Map \d to insert the current date
-if exists("*strftime")
-  nnoremap \d "=strftime("%b %d, %Y")<CR>P
-  inoremap \d <C-R>=strftime("%b %d, %Y")<CR>
-endif
 
 "" Configuracion especifica para vimdiff o vim -d
 if &diff 
