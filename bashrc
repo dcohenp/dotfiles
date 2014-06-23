@@ -62,7 +62,7 @@ cwd_prompt() {
     if [[ "$HOME" == ${dir:0:${#HOME}} ]] ; then
         dir="~${dir:${#HOME}}"
     fi
-    echo "${BLUE}$dir"
+    echo "${BOLD_BLUE}$dir"
 }
 
 # This variable holds the name of the function
@@ -88,6 +88,8 @@ set_prompt () {
 export EDITOR=vim
 export LESS="-F -X -I -R"
 export PAGER="less"
+# Use my own readline .inputrc
+export INPUTRC="${HOME}/.inputrc"
 
 # don't put duplicate lines in the history. See bash(1) for more options
 # don't overwrite GNU Midnight Commander's setting of `ignorespace'.
