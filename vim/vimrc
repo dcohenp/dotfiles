@@ -198,3 +198,8 @@ endif
     let g:ctrlp_root_markers = [ '.p4config' ]
 "endif
 
+" vim-signify: Set VCS systems. Also disable by default, so I can enable via
+" :SignifyToggle/SignifyEnable
+let g:signify_disable_by_default = 1
+let g:signify_vcs_list = [ 'perforce', 'git' ]
+

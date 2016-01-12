@@ -39,3 +39,6 @@
 [submodule "vim/vim/bundle/rust.vim"]
 	path = vim/vim/bundle/rust.vim
 	url = https://github.com/rust-lang/rust.vim.git
+[submodule "vim/vim/bundle/vim-signify"]
+	path = vim/vim/bundle/vim-signify
+	url = https://github.com/mhinz/vim-signify.git
