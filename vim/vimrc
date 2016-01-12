@@ -159,11 +159,8 @@ command! -nargs=0 -bang WQa wqa<bang>
 runtime! macros/matchit.vim
 
 "" Shift-Tab cycles through tabs
-nnoremap <S-tab> :tabn<cr>
-
-" Map \v to open a new tab and edit this .vimrc file. Use \V to load it.
-map \v :tabnew $MYVIMRC<CR><C-W>
-map <silent> \V :source $MYVIMRC<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
+nnoremap <S-tab> :tabnext<cr>
+nnoremap <C-S-tab> :tabprevious<CR>
 
 " Use Ctrl-\ to open a tag definition in a new tab.
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
